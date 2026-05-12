@@ -28,7 +28,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'yamabiko.proxy.rlwy.net', // Paksa langsung di sini
         'username'     => 'root',
-        'password'     => 'BbOqxOEbcPAPJKJZBjXHjiNaEhqggGnU', // Password Railway Mas
+        'password'     => '', // Password Railway Mas
         'database'     => 'railway',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
