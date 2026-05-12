@@ -1,6 +1,5 @@
 FROM php:8.1-apache
 
-# Mencegah Linux memunculkan dialog instalasi yang bisa merusak konfigurasi
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
@@ -23,7 +22,11 @@ RUN npm install
 RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
+# --- TAMBAHKAN PERIZINAN FOLDER WRITABLE ---
+# Memberikan izin akses tulis ke folder writable agar cache bisa jalan
+RUN chown -R www-data:www-data /var/www/html/writable && chmod -R 777 /var/www/html/writable
+# -------------------------------------------
+
 EXPOSE 8080
 
-# Taktik Eksekusi Langsung: Hapus file MPM yang bentrok tepat 1 detik sebelum Apache menyala!
 CMD /bin/bash -c "rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.* ; node websocket.js & apache2-foreground"
