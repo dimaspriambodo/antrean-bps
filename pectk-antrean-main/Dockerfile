@@ -27,3 +27,5 @@ RUN a2dismod mpm_worker || true
 
 EXPOSE 8080
 CMD node websocket.js & apache2-foreground
+
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.load && a2enmod mpm_prefork
