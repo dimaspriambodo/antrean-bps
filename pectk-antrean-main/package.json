@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "express": "^4.22.1",
+    "puppeteer": "^24.42.0",
+    "puppeteer-cluster": "^0.24.0",
+    "ws": "^8.18.1"
+  }
+}
