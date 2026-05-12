@@ -11,7 +11,7 @@ class App extends BaseConfig
      * Base Site URL
      * --------------------------------------------------------------------------
      */
-    public string $baseURL = 'http://localhost:8080/';
+   public string $baseURL = 'https://antrean-bps-production.up.railway.app/';
 
     /**
      * --------------------------------------------------------------------------
