@@ -20,12 +20,14 @@ RUN npm install
 RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
-# --- INI OBAT UNTUK ERROR MPM CRASH ---
-RUN a2dismod mpm_event || true
-RUN a2dismod mpm_worker || true
-# --------------------------------------
+# --- OBAT PAMUNGKAS MPM ---
+# Hapus file MPM event dan worker sampai ke akar-akarnya (mods-available dan mods-enabled)
+RUN rm -f /etc/apache2/mods-available/mpm_event.load \
+    && rm -f /etc/apache2/mods-available/mpm_worker.load \
+    && rm -f /etc/apache2/mods-enabled/mpm_event.load \
+    && rm -f /etc/apache2/mods-enabled/mpm_worker.load \
+    && a2enmod mpm_prefork
+# --------------------------
 
 EXPOSE 8080
 CMD node websocket.js & apache2-foreground
-
-RUN rm -f /etc/apache2/mods-enabled/mpm_*.load && a2enmod mpm_prefork
