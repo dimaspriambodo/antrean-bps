@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname' => '104.196.222.10', // Ini IP dibalik yamabiko.proxy.rlwy.net
+        'hostname'     => 'localhost',
         'username'     => 'root',
-        'password'     => '', // Password Railway Mas
-        'database'     => 'railway',
+        'password'     => '',
+        'database'     => 'ci4',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -41,7 +41,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 41052, // Paksa port-nya di sini
+        'port'         => 3306,
         'numberNative' => false,
     ];
 
