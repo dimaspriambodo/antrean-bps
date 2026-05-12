@@ -1,5 +1,8 @@
 FROM php:8.1-apache
 
+# Mencegah Linux memunculkan dialog instalasi yang bisa merusak konfigurasi
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y \
     libnss3 libatk-bridge2.0-0 libxcomposite1 \
     libxdamage1 libxrandr2 \
@@ -20,14 +23,7 @@ RUN npm install
 RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
-# --- OBAT PAMUNGKAS MPM ---
-# Hapus file MPM event dan worker sampai ke akar-akarnya (mods-available dan mods-enabled)
-RUN rm -f /etc/apache2/mods-available/mpm_event.load \
-    && rm -f /etc/apache2/mods-available/mpm_worker.load \
-    && rm -f /etc/apache2/mods-enabled/mpm_event.load \
-    && rm -f /etc/apache2/mods-enabled/mpm_worker.load \
-    && a2enmod mpm_prefork
-# --------------------------
-
 EXPOSE 8080
-CMD node websocket.js & apache2-foreground
+
+# Taktik Eksekusi Langsung: Hapus file MPM yang bentrok tepat 1 detik sebelum Apache menyala!
+CMD /bin/bash -c "rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.* ; node websocket.js & apache2-foreground"
