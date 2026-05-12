@@ -27,6 +27,9 @@ RUN a2enmod rewrite
 RUN chown -R www-data:www-data /var/www/html/writable && chmod -R 777 /var/www/html/writable
 # -------------------------------------------
 
+# ... (bagian atas tetap sama)
+
 EXPOSE 8080
 
-CMD /bin/bash -c "rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.* ; node websocket.js & apache2-foreground"
+# Kita tambahkan perintah chmod 777 di sini agar dieksekusi saat container jalan
+CMD /bin/bash -c "chmod -R 777 /var/www/html/writable ; rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.* ; node websocket.js & apache2-foreground"
