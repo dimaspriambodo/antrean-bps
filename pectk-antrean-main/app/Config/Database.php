@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'mysql.railway.internal',
+        'hostname'     => 'yamabiko.proxy.rlwy.net',
         'username'     => 'root',
         'password'     => 'BbOqxOEkbcPAPJKJZbJXhjInaEhqgGnU',
         'database'     => 'railway',
