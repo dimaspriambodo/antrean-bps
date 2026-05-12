@@ -1,0 +1,12 @@
+DEBUG - 2026-05-06 09:02:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-06 09:03:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-06 09:03:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-06 09:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-06 09:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-06 09:03:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-06 09:03:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-06 09:03:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-06 09:25:59 --> Notification server offline: 28 : Connection timed out after 2010 milliseconds
+ERROR - 2026-05-06 09:26:11 --> Notification server offline: 28 : Connection timed out after 2011 milliseconds
+ERROR - 2026-05-06 09:26:47 --> WebSocket Notify Error: 28 : Connection timed out after 2003 milliseconds
+ERROR - 2026-05-06 09:27:03 --> WebSocket Notify Error: 28 : Connection timed out after 2008 milliseconds
